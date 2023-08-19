@@ -2,12 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 const createService = () =>{
     return(
-        <div className="row">
+<div className="row">
   <div className="col-md-3" />
-  <div className="col-md-6">
+  <div className="col-md-6 shadow-lg rounded">
     <form method="post">
+      <input type="hidden" />
+      <input type="hidden" />
+      <input type="hidden" />
+      <input type="hidden" />
       <div className="d-flex justify-content-center">
-        <h1>Chỉnh sửa thông tin khách hàng</h1>
+        <h1>Create form customer</h1>
       </div>
       <div className="input-group ">
         <span
@@ -15,8 +19,7 @@ const createService = () =>{
           id="basic-addon1"
           style={{ width: 200 }}
         >
-          Tên khách hàng
-          <small style={{ color: "red", marginLeft: "0.5rem" }}> *</small>
+          Name<small style={{ color: "red", marginLeft: "0.5rem" }}> *</small>
         </span>
         <input
           type="text"
@@ -35,7 +38,7 @@ const createService = () =>{
           id="basic-addon2"
           style={{ width: 200 }}
         >
-          Ngày sinh
+          Day of birth
           <small style={{ color: "red", marginLeft: "0.5rem" }}> *</small>
         </span>
         <input
@@ -46,24 +49,26 @@ const createService = () =>{
           aria-describedby="basic-addon1"
         />
       </div>
-      <div style={{ height: 20 }}></div>
+      <div style={{ height: 20 }}>
+        <small style={{ color: "red", marginLeft: "27%", paddingBottom: 10 }} />
+      </div>
       <div className="input-group mb-3 ">
         <label
           className="input-group-text mx-auto"
           htmlFor="inputGroupSelect01"
           style={{ width: 200 }}
         >
-          Giới tính{" "}
+          Gender{" "}
           <small style={{ color: "red", marginLeft: "0.5rem" }}> *</small>
         </label>
         <select className="form-select" id="inputGroupSelect01">
-          <option>Nam</option>
-          <option>Nữ</option>
+          <option>Man</option>
+          <option>Women</option>
         </select>
       </div>
-      <div className="input-group mb-3 mx-auto">
+      <div className="input-group  mx-auto">
         <span className="input-group-text" style={{ width: 200 }}>
-          Số điện thoại
+          Phone number
           <small style={{ color: "red", marginLeft: "0.5rem" }}> *</small>
         </span>
         <input
@@ -71,10 +76,45 @@ const createService = () =>{
           className="form-control"
           aria-label="Amount (to the nearest dollar)"
         />
+      </div>{" "}
+      <div style={{ height: 20 }}>
+        <small style={{ color: "red", marginLeft: "27%", paddingBottom: 10 }} />
       </div>
-      <div className="input-group mb-3">
+      <div className="input-group  mx-auto">
+        <span className="input-group-text" style={{ width: 200 }}>
+          Identity card
+          <small style={{ color: "red", marginLeft: "0.5rem" }}> *</small>
+        </span>
+        <input
+          type="text"
+          className="form-control"
+          aria-label="Amount (to the nearest dollar)"
+        />
+      </div>{" "}
+      <div style={{ height: 20 }}>
+        <small style={{ color: "red", marginLeft: "27%", paddingBottom: 10 }} />
+      </div>
+      <div className="input-group ">
+        <span
+          className="input-group-text mx-auto"
+          id="basic-addon3"
+          style={{ width: 200 }}
+        >
+          Email<small style={{ color: "red", marginLeft: "0.5rem" }}> *</small>
+        </span>
+        <input
+          type="email"
+          className="form-control"
+          id="basic-url"
+          aria-describedby="basic-addon3"
+        />
+      </div>{" "}
+      <div style={{ height: 20 }}>
+        <small style={{ color: "red", marginLeft: "27%", paddingBottom: 10 }} />
+      </div>
+      <div className="input-group">
         <span className="input-group-text mx-auto" style={{ width: 200 }}>
-          Địa chỉ khách hàng
+          Address
           <small style={{ color: "red", marginLeft: "0.5rem" }}> *</small>
         </span>
         <textarea
@@ -83,17 +123,20 @@ const createService = () =>{
           defaultValue={""}
         />
       </div>
+      <div style={{ height: 20 }}>
+        <small style={{ color: "red", marginLeft: "27%", paddingBottom: 10 }} />
+      </div>
       <div
         className="input-group mb-3 row mx-auto"
         style={{ width: "100%", marginTop: "3%" }}
       >
         <div className="col-6" align="end">
           <button
-            className="btn btn-outline-info"
+            className="btn btn-outline-primary"
             type="submit"
             style={{ width: "50%" }}
           >
-            Cập nhật
+            Save
           </button>
         </div>
         <div className="col-6" align="start">
@@ -103,7 +146,7 @@ const createService = () =>{
               style={{ width: "50%" }}
               type="button"
             >
-              Hủy bỏ
+              Cancle
             </button>
           </a>
         </div>
@@ -112,6 +155,7 @@ const createService = () =>{
   </div>
   <div className="col-md-3"></div>
 </div>
+
 
     );
 }

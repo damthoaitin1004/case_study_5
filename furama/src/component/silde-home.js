@@ -6,7 +6,7 @@ const SildeHome = () => {
   id="carouselExampleIndicators"
   className="carousel slide mx-auto "
   data-bs-ride="true"
-  style={{ width: "100%", height: 500 }}
+  style={{ width: "100%", height: 678 }}
 >
   <div className="carousel-indicators">
     <button
@@ -36,7 +36,7 @@ const SildeHome = () => {
         src="https://phulong.com/UploadFiles/Images/FURAMA%2020%20NAM.jpg"
         className="d-block w-100"
         alt="..."
-        style={{ height: 500 }}
+        style={{ height: 678 }}
       />
     </div>
     <div className="carousel-item">
@@ -44,7 +44,7 @@ const SildeHome = () => {
         src="https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2020/06/Review-Furama-Resort-Da-Nang-13.jpg"
         className="d-block w-100"
         alt="..."
-        style={{ height: 500 }}
+        style={{ height: 678 }}
       />
     </div>
     <div className="carousel-item">
@@ -52,7 +52,7 @@ const SildeHome = () => {
         src="https://ankhangreal.vn/wp-content/uploads/2019/11/ava-ariyana-1030x515.jpg"
         className="d-block w-100"
         alt="..."
-        style={{ height: 500 }}
+        style={{ height: 678 }}
       />
     </div>
   </div>
