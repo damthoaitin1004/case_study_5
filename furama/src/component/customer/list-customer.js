@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 const ListCustomer = () =>{
-    return(<div
+    return(
+    <div
         className="mx-auto shadow-lg p-3 mb-5 bg-body rounded"
         style={{ width: "80%" }}
       >
@@ -9,7 +10,7 @@ const ListCustomer = () =>{
           <h1>Customer List</h1>
         </div>
         <div className="d-flex align-items-center justify-content-center">
-          <table className="table table-light table-striped table-hover table-responsive-sm ">
+          <table className="table table-light table-striped table-hover table-responsive-sm text-center">
             <tbody>
               <tr>
                 <th>STT</th>
