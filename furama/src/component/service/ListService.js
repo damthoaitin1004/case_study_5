@@ -1,6 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
-const List = () => {
+const ListService = () => {
     return(
 <>
   <div className="container-fluid " style={{ marginTop: "6%" }}>
@@ -310,4 +309,4 @@ const List = () => {
 
     );
 }
-export default List;
+export default ListService;

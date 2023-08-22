@@ -1,18 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
-import Headers from './component/header';
-import Footer from './component/footer';
-import SildeHome from './component/silde-home';
-import List from './component/list';
+import Headers from './component/service/Header';
+import SildeHome from './component/service/SlideHome';
+import ListService from './component/service/ListService';
+import Footer from './component/service/Footer';
+
 
 function App() {
   return (
     <>
-    <Headers></Headers>
+    {/* <Headers></Headers>
     <SildeHome></SildeHome>
-    <List></List>
+    <ListService/>
+    <Footer></Footer> */}
+    <Headers/>
+    <SildeHome/>
+    <ListService/>
     <Footer/>
+
     </>
+
   );
 }
 

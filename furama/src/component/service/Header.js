@@ -13,8 +13,8 @@ const Headers = () => {
                 className="d-flex justify-content-center"
                 style={{ fontFamily: '"Lexend Zetta", sans-serif' }}
               >
-                <img src="love-chair.png" height={50} width={50} />
-                <h1 style={{ color: "deeppink" }} className="home">
+                <img src="logo@2x.png" height={50} width={70} />
+                <h1 style={{ color: "white" }} className="home">
                   FURAMA
                 </h1>
               </div>
