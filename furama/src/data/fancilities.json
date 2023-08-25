@@ -1,0 +1,36 @@
+{
+  "fancilities": [
+    {
+      "id": 1,
+      "name": "Villa",
+      "area":80,
+      "rentalCosts": 1200000,
+      "capacity": 6,
+      "rentalType": "Day",
+      "areaPool": 20,
+      "floor": 2,
+      "StandardRoom": "Vip",
+      "Description": ["confortable","modern"]
+    },
+    {
+      "id": 2,
+      "name": "House",
+      "area":50,
+      "rentalCosts": 1800000,
+      "capacity": 3,
+      "rentalType": "Month",
+      "floor": 2,
+      "StandardRoom": "Vip",
+      "Description": ["confortable","modern"]
+    },
+    {
+      "id": 3,
+      "name": "Room",
+      "rentalCosts": 1300000,
+      "capacity": 3,
+      "rentalType": "Month",
+      "accompaniedService": ["massage","karaoke"]
+    
+    }
+  ]
+}
