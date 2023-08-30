@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Field, Form, Formik, ErrorMessage } from 'formik';
 import { useParams, Await, useNavigate } from "react-router";
 import * as FancilityServices from "../../services/FancilityServices";
@@ -6,11 +6,26 @@ import 'react-toastify/dist/ReactToastify.css';
 import * as Yup from "yup"
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { getListTypeRental } from "../../services/TypeRental";
 const CreateService = () => {
   const navigate = useNavigate();
-  const createService = async (values) => {
-     await FancilityServices.addService(values);
-     toast("Create success !", {
+  const [typeRentals, setTypeRentals] = useState([]);
+  useEffect(
+    () => {
+      loadListTypeRental();
+    }, []
+  )
+  const loadListTypeRental = async () => {
+    const result = await getListTypeRental();
+    setTypeRentals((prev) => result)
+  }
+  const createService = async (value) => {
+    const newValue = {
+      ...value, typeRental: JSON.parse(value.typeRental)
+    }
+    console.log(newValue)
+    await FancilityServices.addService(newValue);
+    toast("Create success !", {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -19,14 +34,13 @@ const CreateService = () => {
       draggable: true,
       progress: undefined,
       theme: "light",
-      });
-     navigate("/")
+    });
+    navigate("/")
   }
   return (
     <>
       <Formik
         initialValues={{
-
           name: "",
           roomStandard: "",
           typeRental: [],
@@ -84,16 +98,17 @@ const CreateService = () => {
 
               </div>
               <div className="col-md-6 ">
-                <label className="form-label" htmlFor="type" name="typeRental">Type</label>
-                <br />
-                <Field className="form-check-input" id="year" type="checkbox" name="typeRental" value="Year" />
-                <label htmlFor="year">&nbsp;Year</label>
-                <Field className="form-check-input" id="month" type="checkbox" name="typeRental" value="Month" />
-                <label htmlFor="month">&nbsp;Month</label>
-                <Field className="form-check-input" id="day" type="checkbox" name="typeRental" value="Day" />
-                <label htmlFor="day">&nbsp;Day</label>
-                <Field className="form-check-input" id="hour" type="checkbox" name="typeRental" value="Hour" />
-                <label htmlFor="hour">&nbsp;Hour</label>
+                <label htmlFor="typeRental" className="form-label">
+                  Type rental
+                </label>
+
+                <Field as="select" className="form-select" id="typeRental" name="typeRental">
+                  {
+                    typeRentals.map((typeRental) => (
+                      <option value={`${JSON.stringify(typeRental)}`}>{typeRental.namde}</option>
+                    ))}
+
+                </Field>
               </div>
 
               <div className="col-md-6">
@@ -167,11 +182,11 @@ const CreateService = () => {
 
               </div>
               <div className="col-md-12">
-                <label htmlFor="Description" className="form-label">
+                <label htmlFor="description" className="form-label">
                   Description
                 </label>
-                <Field as="textarea" className="form-control" id="Description" name="Descriptiond" />
-                <ErrorMessage name="Description" component="span" className="text-danger" />
+                <Field as="textarea" className="form-control" id="description" name="description" />
+                <ErrorMessage name="description" component="span" className="text-danger" />
 
               </div>
               <div className="d-flex col-12">

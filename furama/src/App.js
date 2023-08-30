@@ -12,6 +12,7 @@ import CreateCustomer from './component/customer/CreateCustomer';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import EditCustomer from './component/customer/EditCustomer';
+import CreateContract from './component/contract/CreateContract';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/' element={<ListService />} />
         <Route path='/customer' element={<ListCustomer />} />
         <Route path='/contract' element={<ListContract />} />
+        <Route path='/contract/create' element={<CreateContract/>}/>
         <Route path='/customer/create' element={<CreateCustomer />} />
         <Route path='/customer/edit/:id' element={<EditCustomer />} />
         <Route path="/fancility/create" element={<CreateService />} />

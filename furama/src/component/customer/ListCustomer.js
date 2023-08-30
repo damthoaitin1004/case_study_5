@@ -28,10 +28,9 @@ const ListCustomer = () => {
               <th>#</th>
               <th>Name</th>
               <th> Day of birth</th>
-              <th>Address</th>
+              <th>Customer type</th>
               <th>Phone number</th>
               <th>Update</th>
-              <th>Delete</th>
             </tr>
             {customers.map((customer, index) => (
               <tr key={index}>

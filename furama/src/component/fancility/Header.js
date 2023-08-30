@@ -71,12 +71,12 @@ const headers = () => {
                   </Link>
                   <ul className="dropdown-menu">
                     <li>
-                      <Link className="dropdown-item" to={"/fancility/create"}>
+                      <Link className="dropdown-item" to={"/contract/create"}>
                         Create contract
                       </Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item" to={"/"}>
+                      <Link className="dropdown-item" to={"/contract"}>
                         List contract
                       </Link>
                     </li>

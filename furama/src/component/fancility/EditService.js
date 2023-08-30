@@ -6,12 +6,26 @@ import { useParams } from "react-router-dom";
 import * as Yup from "yup";
 import { getByIdService, editService } from "../../services/FancilityServices";
 import { toast } from "react-toastify";
+import { getListTypeRental } from "../../services/TypeRental";
 function EditServices() {
   const navigate = useNavigate();
   const params = useParams();
   const [fancilities, setFancilities] = useState();
+  const [typeRentals, setTypeRentals] = useState([]);
+  useEffect(
+    () => {
+      loadListTypeRental();
+    }, []
+  )
+  const loadListTypeRental = async () => {
+    const result = await getListTypeRental();
+    setTypeRentals((prev) => result)
+  }
   const updateService = async (value) => {
-    const result = await editService(value);
+    const newValue = {
+      ...value, typeRental: JSON.parse(value.typeRental)
+    };
+    const result = await editService(newValue);
     toast("Update complete !", {
       position: "top-center",
       autoClose: 5000,
@@ -26,8 +40,9 @@ function EditServices() {
   }
   const loadFancilitiesDetail = async (id) => {
     const data = await getByIdService(id);
+    const newData = { ...data, typeRental: `${JSON.stringify(data.typeRental)}` }
     console.log(data);
-    setFancilities(data);
+    setFancilities(newData);
   }
 
   useEffect(() => {
@@ -47,18 +62,20 @@ function EditServices() {
           ...fancilities
         }
         }
-        onSubmit={(values) => {
-          updateService(values);
-        }}
+        onSubmit={
+          async (value) => {
+            console.log(value)
+            await updateService(value);
+          }}
         validationSchema={Yup.object({
           name: Yup.string()
             .required("Please is not empty!"),
           roomStandard: Yup.string().required("Please is not empty!"),
-          area: Yup.string().required("Please is not empty!"),
+          area: Yup.number().required("Please is not empty!"),
           capacity: Yup.string().required("Please is not empty!"),
-          poolArea: Yup.string().required("Please is not empty!"),
-          floorQuantity: Yup.string().required("Please is not empty!"),
-          fee: Yup.string().required("Please is not empty!")
+          poolArea: Yup.number().required("Please is not empty!"),
+          floorQuantity: Yup.number().required("Please is not empty!"),
+          fee: Yup.number().required("Please is not empty!")
         })
 
         }>
@@ -91,16 +108,17 @@ function EditServices() {
 
               </div>
               <div className="col-md-6 ">
-                <label className="form-label" htmlFor="type" name="typeRental">Type</label>
-                <br />
-                <Field className="form-check-input" id="year" type="checkbox" name="typeRental" value="Year" />
-                <label htmlFor="year">&nbsp;Year</label>
-                <Field className="form-check-input" id="month" type="checkbox" name="typeRental" value="Month" />
-                <label htmlFor="month">&nbsp;Month</label>
-                <Field className="form-check-input" id="day" type="checkbox" name="typeRental" value="Day" />
-                <label htmlFor="day">&nbsp;Day</label>
-                <Field className="form-check-input" id="hour" type="checkbox" name="typeRental" value="Hour" />
-                <label htmlFor="hour">&nbsp;Hour</label>
+                <label htmlFor="typeRental" className="form-label">
+                  Type rental
+                </label>
+
+                <Field as="select" className="form-select" id="typeRental" name="typeRental">
+                  {
+                    typeRentals.map((typeRental) => (
+                      <option value={`${JSON.stringify(typeRental)}`}>{typeRental.namde}</option>
+                    ))}
+
+                </Field>
               </div>
 
               <div className="col-md-6">
@@ -166,7 +184,7 @@ function EditServices() {
                 <Field
                   type="text"
                   className="form-control"
-                  id="Fee"
+                  id="fee"
                   name="fee"
                 />
                 <ErrorMessage name="fee" component="span" className="text-danger" />
@@ -176,13 +194,13 @@ function EditServices() {
                 <label htmlFor="Description" className="form-label">
                   Description
                 </label>
-                <Field as="textarea" className="form-control" id="Description" name="Descriptiond" />
-                <ErrorMessage name="Description" component="span" className="text-danger" />
+                <Field as="textarea" className="form-control" id="description" name="description" />
+                <ErrorMessage name="description" component="span" className="text-danger" />
 
               </div>
               <div className="d-flex col-12">
                 <button type="submit" className="btn btn-outline-primary w-50 ">
-                  Create
+                  Update
                 </button>
                 <Link to={"/"} className="btn btn-outline-warning w-50">
                   Cancel

@@ -3,20 +3,31 @@ import { getByIdCustomer, editCustomer } from "../../services/CustomerService";
 import * as Yup from "yup";
 import { Form, Formik, ErrorMessage, Field } from "formik";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { getListCutomerType } from "../../services/CustomerTypeService";
 
 const EditCustomers = () => {
   const navigate = useNavigate();
   const params = useParams();
   const [customer, setCustomer] = useState();
+  const [customerTypes, setCustomerTypes] = useState([]);
+  useEffect(
+    () => {
+      loadListCustomerType();
+    }, []
+  )
+  const loadListCustomerType = async () => {
+    const result = await getListCutomerType();
+    setCustomerTypes((prev) => result)
+  }
   const updateCustomer = async (value) => {
     const result = await editCustomer(value);
-    console.log(result)
     navigate("/customer");
   }
 
   const loadCustomerDetail = async (id) => {
     const data = await getByIdCustomer(id);
-    setCustomer(data);
+    const newData = {...data, customerType: `${JSON.stringify(data.customerType)}`}
+    setCustomer(newData);
   }
   useEffect(() => {
     if (params.id) {
@@ -46,8 +57,10 @@ const EditCustomers = () => {
       }
       onSubmit={
         async (value) => {
-          await updateCustomer(value);
-          
+          const newValue = {
+            ...value, customerType: JSON.parse(value.customerType)
+          };
+          await updateCustomer(newValue);
         }
       }>
       <div className="row">
@@ -153,6 +166,23 @@ const EditCustomers = () => {
             </div>
             <div style={{ height: 20, color: "red" }}>
               <ErrorMessage name="email" style={{ color: "red", marginLeft: "27%", paddingBottom: 10 }} />
+            </div>
+            <div className="input-group mb-3 ">
+              <label
+                className="input-group-text mx-auto"
+                htmlFor="inputGroupSelect01"
+                style={{ width: 200 }}
+              >
+                Customer type
+                <small style={{ color: "red", marginLeft: "0.5rem" }}> *</small>
+              </label>
+              <Field as="select" className="form-select" id="inputGroupSelect01" name="customerType">
+                {
+                  customerTypes.map((customerType) => (
+                    <option value={`${JSON.stringify(customerType)}`}>{customerType.name}</option>
+                  ))}
+
+              </Field>
             </div>
             <div className="input-group">
               <span className="input-group-text mx-auto" style={{ width: 200 }}>

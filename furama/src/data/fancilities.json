@@ -6,16 +6,14 @@
       "area": 80,
       "rentalCosts": 1200000,
       "capacity": 6,
-      "typeRental": [
-        "Day"
-      ],
+      "typeRental": {
+        "id": 2,
+        "namde": "Day"
+      },
       "areaPool": 20,
       "floorQuantity": 2,
       "roomStandard": "Vip",
-      "Description": [
-        "confortable",
-        "modern"
-      ]
+      "description": "modern,confortable"
     },
     {
       "id": 2,
@@ -23,75 +21,26 @@
       "area": 50,
       "rentalCosts": 1800000,
       "capacity": 3,
-      "typeRental": [
-        "Month"
-      ],
+      "typeRental": {
+        "id": 2,
+        "namde": "Day"
+      },
       "floorQuantity": 2,
       "roomStandard": "Vip",
-      "Description": [
-        "confortable",
-        "modern"
-      ]
+      "description": "confortable",
+      "fee": 40,
+      "poolArea": 23
     },
     {
       "id": 3,
       "name": "Room",
       "rentalCosts": 1300000,
       "capacity": 3,
-      "typeRental": "Month",
-      "fee": "massage"
-    },
-    {
-      "name": "Nguyen Van Thanh",
-      "roomStandard": "Vip",
-      "typeRental": true,
-      "area": 12,
-      "capacity": 12,
-      "poolArea": 120,
-      "floorQuantity": 2,
-      "fee": "message",
-      "Description": "hjghjghj",
-      "id": 4
-    },
-    {
-      "name": "asdsa sad asdsa",
-      "roomStandard": "Vip",
-      "typeRental": [
-        "Month"
-      ],
-      "area": 12,
-      "capacity": 12,
-      "poolArea": 120,
-      "floorQuantity": 2,
-      "fee": "message",
-      "Description": "aaaaaaaaaaaaaaaa",
-      "id": 6
-    },
-    {
-      "name": "Dam Thoai TIn",
-      "roomStandard": "Vip",
-      "typeRental": [
-        "Day"
-      ],
-      "area": 12,
-      "capacity": 12,
-      "poolArea": 120,
-      "floorQuantity": 2,
-      "fee": "message",
-      "Description": "asdasdsad",
-      "id": 7
-    },
-    {
-      "name": "Dam Thoai TIn",
-      "roomStandard": "Vip",
-      "typeRental": [],
-      "area": 12,
-      "capacity": 12,
-      "poolArea": 120,
-      "floorQuantity": 2,
-      "fee": "message",
-      "Description": "asdasdsad",
-      "id": 8
+      "typeRental": {
+        "id": 3,
+        "namde": "Month"
+      },
+      "fee": 30
     }
   ],
   "customer": [
@@ -107,24 +56,24 @@
         "id": 1,
         "name": "Member"
       },
-      "address": "16 Mỹ khê 6 Phước Mỹ Đà Nẵng"
+      "address": "10 Mỹ khê 6 Phước Mỹ Đà Nẵng"
     },
     {
       "id": 2,
       "name": "Mai Thủy Tiên",
       "birth": "2023-08-18",
-      "gender": false,
+      "gender": "false",
       "iCard": 2016665456,
       "phone": "0945665447",
       "email": "thuytien@gmail.com",
       "customerType": {
-        "id": 4,
-        "name": "Platinium"
+        "id": 3,
+        "name": "Gold"
       },
       "address": "120 Võ Nguyên Giáp"
     },
     {
-      "name": "Nguyen Van Sinh",
+      "name": "Nguyễn Tất Thành",
       "birth": "2023-08-18",
       "gender": "",
       "phone": "0339779768",
@@ -138,7 +87,7 @@
       "id": 3
     },
     {
-      "name": "Đàm Thoại Tin",
+      "name": "Nguyễn Văn B",
       "birth": "2023-08-26",
       "gender": "",
       "phone": "0339779768",
@@ -152,7 +101,7 @@
       "id": 4
     },
     {
-      "name": "Nhật Béo",
+      "name": "Nguyen Van Sinh",
       "birth": "2023-08-17",
       "gender": "",
       "phone": "0339779865",
@@ -163,7 +112,8 @@
         "id": 2,
         "name": "Silver"
       },
-      "id": 5
+      "id": 5,
+      "address": "27 My Khe 6"
     },
     {
       "name": "Nhật mập",
@@ -174,54 +124,24 @@
       "email": "damthoaitin100041997@gmail.com",
       "address": "aaaaaa",
       "customerType": {
-        "id": 1,
-        "name": "Member"
+        "id": 3,
+        "name": "Gold"
       },
       "id": 6
     },
     {
-      "name": "Nguyen Van Thịnh",
-      "birth": "2023-08-24",
-      "gender": "false",
-      "phone": "0339779865",
-      "iCard": "1111111111111",
-      "customerType": "Member",
-      "email": "sfdsd@gmail.com",
-      "address": "27 My Khe 6",
+      "name": "Đàm Thoại Tin",
+      "birth": "2023-08-25",
+      "gender": "true",
+      "phone": "0339779768",
+      "iCard": "201664589",
+      "customerType": {
+        "id": 4,
+        "name": "Platinium"
+      },
+      "email": "damthoaitin100041997@gmail.com",
+      "address": "aaaaaa",
       "id": 7
-    },
-    {
-      "name": "Nguyen Van Sinh",
-      "birth": "2023-08-26",
-      "gender": true,
-      "phone": "0339779865",
-      "iCard": "1111111111111",
-      "customerType": "[object Object]",
-      "email": "sfdsd@gmail.com",
-      "address": "27 My Khe 6",
-      "id": 8
-    },
-    {
-      "name": "banh can",
-      "birth": "2023-09-01",
-      "gender": "false",
-      "phone": "0339779865",
-      "iCard": "1111111111111",
-      "customerType": "[object Object]",
-      "email": "damthoaitin100041997@gmail.com",
-      "address": "27 My Khe 6",
-      "id": 9
-    },
-    {
-      "name": "demo",
-      "birth": "2023-09-09",
-      "gender": true,
-      "phone": "0339779865",
-      "iCard": "1111111111111",
-      "customerType": "{\"id\":3,\"name\":\"Golder\"}",
-      "email": "damthoaitin100041997@gmail.com",
-      "address": "27 My Khe 6",
-      "id": 10
     }
   ],
   "customerType": [
@@ -235,7 +155,7 @@
     },
     {
       "id": 3,
-      "name": "Golder"
+      "name": "Gold"
     },
     {
       "id": 4,
@@ -244,6 +164,86 @@
     {
       "id": 5,
       "name": "Diamond"
+    }
+  ],
+  "typeRental": [
+    {
+      "id": 1,
+      "namde": "Hour"
+    },
+    {
+      "id": 2,
+      "namde": "Day"
+    },
+    {
+      "id": 3,
+      "namde": "Month"
+    },
+    {
+      "id": 4,
+      "namde": "Year"
+    }
+  ],
+  "contract": [
+    {
+      "id": 1,
+      "contract_code": "CC-0001",
+      "facility_code": "VL-0001",
+      "customer_code": "C-0001",
+      "start_date": "2022-01-01 00-00-00",
+      "end_date": "2022-01-05 00-00-00",
+      "deposit": 100,
+      "total_payment": 300
+    },
+    {
+      "id": 2,
+      "contract_code": "CC-0002",
+      "facility_code": "VL-0001",
+      "customer_code": "C-0002",
+      "start_date": "2022-02-01 00-00-00",
+      "end_date": "2022-02-05 00-00-00",
+      "deposit": 100,
+      "total_payment": 300
+    },
+    {
+      "id": 3,
+      "contract_code": "CC-0003",
+      "facility_code": "VL-0001",
+      "customer_code": "C-0003",
+      "start_date": "2022-01-10 00-00-00",
+      "end_date": "2022-01-20 00-00-00",
+      "deposit": 100,
+      "total_payment": 300
+    },
+    {
+      "id": 4,
+      "contract_code": "CC-0004",
+      "facility_code": "VL-0001",
+      "customer_code": "C-0004",
+      "start_date": "2022-02-14",
+      "end_date": "2022-02-20 00-00-00",
+      "deposit": 100,
+      "total_payment": 300
+    },
+    {
+      "id": 5,
+      "contract_code": "CC-0005",
+      "facility_code": "VL-0001",
+      "customer_code": "C-0005",
+      "start_date": "2022-02-06 00-00-00",
+      "end_date": "2022-02-09 00-00-00",
+      "deposit": 100,
+      "total_payment": 300
+    },
+    {
+      "contract_code": "CC-0009",
+      "facility_code": "HO-0001",
+      "customer_code": "C-0009",
+      "start_date": "2023-12-12T00:12",
+      "end_date": "2023-12-12T01:01",
+      "deposit": 50,
+      "total_payment": 60,
+      "id": 6
     }
   ]
 }
