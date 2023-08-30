@@ -3,34 +3,247 @@
     {
       "id": 1,
       "name": "Villa",
-      "area":80,
+      "area": 80,
       "rentalCosts": 1200000,
       "capacity": 6,
-      "rentalType": "Day",
+      "typeRental": [
+        "Day"
+      ],
       "areaPool": 20,
-      "floor": 2,
-      "StandardRoom": "Vip",
-      "Description": ["confortable","modern"]
+      "floorQuantity": 2,
+      "roomStandard": "Vip",
+      "Description": [
+        "confortable",
+        "modern"
+      ]
     },
     {
       "id": 2,
       "name": "House",
-      "area":50,
+      "area": 50,
       "rentalCosts": 1800000,
       "capacity": 3,
-      "rentalType": "Month",
-      "floor": 2,
-      "StandardRoom": "Vip",
-      "Description": ["confortable","modern"]
+      "typeRental": [
+        "Month"
+      ],
+      "floorQuantity": 2,
+      "roomStandard": "Vip",
+      "Description": [
+        "confortable",
+        "modern"
+      ]
     },
     {
       "id": 3,
       "name": "Room",
       "rentalCosts": 1300000,
       "capacity": 3,
-      "rentalType": "Month",
-      "accompaniedService": ["massage","karaoke"]
-    
+      "typeRental": "Month",
+      "fee": "massage"
+    },
+    {
+      "name": "Nguyen Van Thanh",
+      "roomStandard": "Vip",
+      "typeRental": true,
+      "area": 12,
+      "capacity": 12,
+      "poolArea": 120,
+      "floorQuantity": 2,
+      "fee": "message",
+      "Description": "hjghjghj",
+      "id": 4
+    },
+    {
+      "name": "asdsa sad asdsa",
+      "roomStandard": "Vip",
+      "typeRental": [
+        "Month"
+      ],
+      "area": 12,
+      "capacity": 12,
+      "poolArea": 120,
+      "floorQuantity": 2,
+      "fee": "message",
+      "Description": "aaaaaaaaaaaaaaaa",
+      "id": 6
+    },
+    {
+      "name": "Dam Thoai TIn",
+      "roomStandard": "Vip",
+      "typeRental": [
+        "Day"
+      ],
+      "area": 12,
+      "capacity": 12,
+      "poolArea": 120,
+      "floorQuantity": 2,
+      "fee": "message",
+      "Description": "asdasdsad",
+      "id": 7
+    },
+    {
+      "name": "Dam Thoai TIn",
+      "roomStandard": "Vip",
+      "typeRental": [],
+      "area": 12,
+      "capacity": 12,
+      "poolArea": 120,
+      "floorQuantity": 2,
+      "fee": "message",
+      "Description": "asdasdsad",
+      "id": 8
+    }
+  ],
+  "customer": [
+    {
+      "id": 1,
+      "name": "Nguyễn Văn An",
+      "birth": "2023-08-18",
+      "gender": true,
+      "iCard": 203554654,
+      "phone": "0332115146",
+      "email": "anNguyen@gmail.com",
+      "customerType": {
+        "id": 1,
+        "name": "Member"
+      },
+      "address": "16 Mỹ khê 6 Phước Mỹ Đà Nẵng"
+    },
+    {
+      "id": 2,
+      "name": "Mai Thủy Tiên",
+      "birth": "2023-08-18",
+      "gender": false,
+      "iCard": 2016665456,
+      "phone": "0945665447",
+      "email": "thuytien@gmail.com",
+      "customerType": {
+        "id": 4,
+        "name": "Platinium"
+      },
+      "address": "120 Võ Nguyên Giáp"
+    },
+    {
+      "name": "Nguyen Van Sinh",
+      "birth": "2023-08-18",
+      "gender": "",
+      "phone": "0339779768",
+      "iCard": "03339778556",
+      "email": "damthoaitin100041997@gmail.com",
+      "address": "aaaaaa",
+      "customerType": {
+        "id": 4,
+        "name": "Platinium"
+      },
+      "id": 3
+    },
+    {
+      "name": "Đàm Thoại Tin",
+      "birth": "2023-08-26",
+      "gender": "",
+      "phone": "0339779768",
+      "iCard": "111111111111111",
+      "email": "damthoaitin100041997@gmail.com",
+      "address": "aaaaaa",
+      "customerType": {
+        "id": 5,
+        "name": "Diamond"
+      },
+      "id": 4
+    },
+    {
+      "name": "Nhật Béo",
+      "birth": "2023-08-17",
+      "gender": "",
+      "phone": "0339779865",
+      "iCard": "1111111111111",
+      "email": "sfdsd@gmail.com",
+      "adderss": "ádsadsadsad",
+      "customerType": {
+        "id": 2,
+        "name": "Silver"
+      },
+      "id": 5
+    },
+    {
+      "name": "Nhật mập",
+      "birth": "2023-08-17",
+      "gender": "",
+      "phone": "0339779768",
+      "iCard": "1111111111111",
+      "email": "damthoaitin100041997@gmail.com",
+      "address": "aaaaaa",
+      "customerType": {
+        "id": 1,
+        "name": "Member"
+      },
+      "id": 6
+    },
+    {
+      "name": "Nguyen Van Thịnh",
+      "birth": "2023-08-24",
+      "gender": "false",
+      "phone": "0339779865",
+      "iCard": "1111111111111",
+      "customerType": "Member",
+      "email": "sfdsd@gmail.com",
+      "address": "27 My Khe 6",
+      "id": 7
+    },
+    {
+      "name": "Nguyen Van Sinh",
+      "birth": "2023-08-26",
+      "gender": true,
+      "phone": "0339779865",
+      "iCard": "1111111111111",
+      "customerType": "[object Object]",
+      "email": "sfdsd@gmail.com",
+      "address": "27 My Khe 6",
+      "id": 8
+    },
+    {
+      "name": "banh can",
+      "birth": "2023-09-01",
+      "gender": "false",
+      "phone": "0339779865",
+      "iCard": "1111111111111",
+      "customerType": "[object Object]",
+      "email": "damthoaitin100041997@gmail.com",
+      "address": "27 My Khe 6",
+      "id": 9
+    },
+    {
+      "name": "demo",
+      "birth": "2023-09-09",
+      "gender": true,
+      "phone": "0339779865",
+      "iCard": "1111111111111",
+      "customerType": "{\"id\":3,\"name\":\"Golder\"}",
+      "email": "damthoaitin100041997@gmail.com",
+      "address": "27 My Khe 6",
+      "id": 10
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Member"
+    },
+    {
+      "id": 2,
+      "name": "Silver"
+    },
+    {
+      "id": 3,
+      "name": "Golder"
+    },
+    {
+      "id": 4,
+      "name": "Platinium"
+    },
+    {
+      "id": 5,
+      "name": "Diamond"
     }
   ]
 }

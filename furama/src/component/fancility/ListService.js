@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getAll } from "../../services/FancilityServices";
+import * as FancilityServices from "../../services/FancilityServices";
+import { useNavigate } from "react-router-dom";
+import SildeHome from "./SlideHome";
+import { Link } from "react-router-dom";
 const ListService = () => {
+  const navigate = useNavigate();
   const [services, setServices] = useState([]);
   useEffect(
     () => {
@@ -8,15 +12,19 @@ const ListService = () => {
     }, []
   )
   const loadServiceList = async () => {
-    const result = await getAll();
+    const result = await FancilityServices.getAll();
     setServices((prev) => result);
   };
   return (
     <>
+      <SildeHome />
       <div className="container-fluid " style={{ marginTop: "6%" }}>
+        <div className="d-flex justify-content-center mb-3 ">
+          <div><h1>Fancilities list</h1></div>
+        </div>
         <div className="mx-auto row" style={{ width: "90%" }}>
           {services.map((facility) => (
-            <div className="col-lg-4 col-md-4 col-sm-6 pb-5">
+            <div className="col-lg-4 col-md-4 col-sm-6 pb-5" key={facility.id}>
               <div className="card" style={{ width: "25rem" }}>
                 <img
                   style={{ width: "100%", height: 200 }}
@@ -28,9 +36,11 @@ const ListService = () => {
                     Room size {facility.area}<sup>2</sup>
                   </small>
                   <div style={{ marginTop: "3%" }}>
-                    <a href="#" className="card-link">
-                      <button className=" btn btn-outline-primary">Update</button>
-                    </a>
+                    <button className="card-link btn btn-outline-primary" onClick={() => {
+                      navigate(`/fancility/edit/${facility.id}`)
+                    }}>
+                      Edit
+                    </button>
                     <a href="#" className="card-link">
                       <button
                         className=" btn btn-outline-danger"
