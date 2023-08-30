@@ -33,13 +33,7 @@ const Footer = () => {
               <div className="col-md-3 mb-5">
                 <h5 className="text-light text-uppercase mb-4">Công Ty</h5>
                 <div className="d-flex flex-column justify-content-start">
-                  <a
-                    className="text-light mb-2"
-                    href="#"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <i className="fa-solid fa-chevron-right fa-beat" /> Giới thiệu
-                  </a>
+                  
                   <a
                     className="text-light mb-2"
                     href="#"
@@ -47,14 +41,7 @@ const Footer = () => {
                   >
                     <i className="fa-solid fa-chevron-right fa-beat" /> Tuyển dụng
                   </a>
-                  <a
-                    className="text-light mb-2"
-                    href="#"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <i className="fa-solid fa-chevron-right fa-beat" /> Tin thời
-                    trang
-                  </a>
+                
                   <a
                     className="text-light mb-2"
                     href="#"
@@ -86,22 +73,7 @@ const Footer = () => {
                     <i className="fa-solid fa-chevron-right fa-beat" /> Chính sách
                     khách hàng thân thiết
                   </a>
-                  <a
-                    className="text-light mb-2"
-                    href="#"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <i className="fa-solid fa-chevron-right fa-beat" /> Chính sách
-                    đổi trả
-                  </a>
-                  <a
-                    className="text-light mb-2"
-                    href="#"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <i className="fa-solid fa-chevron-right fa-beat" /> Chính sách
-                    bảo hành
-                  </a>
+            
                   <a
                     className="text-light mb-2"
                     href="#"
@@ -124,18 +96,7 @@ const Footer = () => {
                 <h5 className="text-light text-uppercase mb-4">
                   THAM GIA BẢNG TIN CỦA CHÚNG TÔI
                 </h5>
-                <form action="">
-                  <div className="input-group">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Email..."
-                    />
-                    <div className="input-group-append">
-                      <button className="btn btn-outline-light">Đăng Ký</button>
-                    </div>
-                  </div>
-                </form>
+                
                 <h6 className="text-secondary text-uppercase mt-4 mb-3">
                   Theo dõi chúng tôi
                 </h6>

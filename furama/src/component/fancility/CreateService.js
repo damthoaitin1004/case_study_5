@@ -43,7 +43,7 @@ const CreateService = () => {
         initialValues={{
           name: "",
           roomStandard: "",
-          typeRental: [],
+          typeRental: "",
           area: "",
           capacity: "",
           poolArea: "",
@@ -61,11 +61,11 @@ const CreateService = () => {
           name: Yup.string()
             .required("Please is not empty!"),
           roomStandard: Yup.string().required("Please is not empty!"),
-          area: Yup.string().required("Please is not empty!"),
-          capacity: Yup.string().required("Please is not empty!"),
-          poolArea: Yup.string().required("Please is not empty!"),
-          floorQuantity: Yup.string().required("Please is not empty!"),
-          fee: Yup.string().required("Please is not empty!")
+          area: Yup.number().required("Please is not empty!"),
+          capacity: Yup.number().required("Please is not empty!"),
+          poolArea: Yup.number().required("Please is not empty!"),
+          floorQuantity: Yup.number().required("Please is not empty!"),
+          fee: Yup.number().required("Please is not empty!")
         })
 
         }>
@@ -172,9 +172,9 @@ const CreateService = () => {
                   Fee
                 </label>
                 <Field
-                  type="text"
+                  type="number"
                   className="form-control"
-                  id="Fee"
+                  id="fee"
                   placeholder="fee"
                   name="fee"
                 />

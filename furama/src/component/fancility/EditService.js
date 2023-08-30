@@ -182,7 +182,7 @@ function EditServices() {
                   Fee
                 </label>
                 <Field
-                  type="text"
+                  type="number"
                   className="form-control"
                   id="fee"
                   name="fee"

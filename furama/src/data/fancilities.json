@@ -45,37 +45,23 @@
   ],
   "customer": [
     {
-      "id": 1,
-      "name": "Nguyễn Văn An",
-      "birth": "2023-08-18",
-      "gender": true,
-      "iCard": 203554654,
-      "phone": "0332115146",
-      "email": "anNguyen@gmail.com",
-      "customerType": {
-        "id": 1,
-        "name": "Member"
-      },
-      "address": "10 Mỹ khê 6 Phước Mỹ Đà Nẵng"
-    },
-    {
       "id": 2,
       "name": "Mai Thủy Tiên",
       "birth": "2023-08-18",
       "gender": "false",
       "iCard": 2016665456,
       "phone": "0945665447",
-      "email": "thuytien@gmail.com",
+      "email": "thytien@gmail.com",
       "customerType": {
-        "id": 3,
-        "name": "Gold"
+        "id": 1,
+        "name": "Member"
       },
       "address": "120 Võ Nguyên Giáp"
     },
     {
       "name": "Nguyễn Tất Thành",
       "birth": "2023-08-18",
-      "gender": "",
+      "gender": "false",
       "phone": "0339779768",
       "iCard": "03339778556",
       "email": "damthoaitin100041997@gmail.com",
@@ -142,6 +128,48 @@
       "email": "damthoaitin100041997@gmail.com",
       "address": "aaaaaa",
       "id": 7
+    },
+    {
+      "name": "Nguyen Van Sinh",
+      "birth": "2023-08-15",
+      "gender": true,
+      "phone": "0339779768",
+      "iCard": "201771090",
+      "customerType": {
+        "id": 2,
+        "name": "Silver"
+      },
+      "email": "sfdsd@gmail.com",
+      "address": "gccvvc",
+      "id": 8
+    },
+    {
+      "name": "Nguyen Van Sinh",
+      "birth": "2023-08-18",
+      "gender": true,
+      "phone": "0339779865",
+      "iCard": "1111111111111",
+      "customerType": {
+        "id": 1,
+        "name": "Member"
+      },
+      "email": "sfdsd@gmail.com",
+      "address": "27 My Khe 6",
+      "id": 9
+    },
+    {
+      "name": "Nguyen Van SinhKkk",
+      "birth": "2023-08-25",
+      "gender": true,
+      "phone": "0339779768",
+      "iCard": "1111111111111",
+      "customerType": {
+        "id": 2,
+        "name": "Silver"
+      },
+      "email": "damthoaitin100041997@gmail.com",
+      "address": "aaaaaa",
+      "id": 10
     }
   ],
   "customerType": [
@@ -190,8 +218,8 @@
       "contract_code": "CC-0001",
       "facility_code": "VL-0001",
       "customer_code": "C-0001",
-      "start_date": "2022-01-01 00-00-00",
-      "end_date": "2022-01-05 00-00-00",
+      "start_date": "2022-01-01 ",
+      "end_date": "2022-01-05 ",
       "deposit": 100,
       "total_payment": 300
     },
@@ -200,8 +228,8 @@
       "contract_code": "CC-0002",
       "facility_code": "VL-0001",
       "customer_code": "C-0002",
-      "start_date": "2022-02-01 00-00-00",
-      "end_date": "2022-02-05 00-00-00",
+      "start_date": "2022-02-01 ",
+      "end_date": "2022-02-05 ",
       "deposit": 100,
       "total_payment": 300
     },
@@ -210,8 +238,8 @@
       "contract_code": "CC-0003",
       "facility_code": "VL-0001",
       "customer_code": "C-0003",
-      "start_date": "2022-01-10 00-00-00",
-      "end_date": "2022-01-20 00-00-00",
+      "start_date": "2022-01-10 ",
+      "end_date": "2022-01-20 ",
       "deposit": 100,
       "total_payment": 300
     },
@@ -221,7 +249,7 @@
       "facility_code": "VL-0001",
       "customer_code": "C-0004",
       "start_date": "2022-02-14",
-      "end_date": "2022-02-20 00-00-00",
+      "end_date": "2022-02-20",
       "deposit": 100,
       "total_payment": 300
     },
@@ -230,8 +258,8 @@
       "contract_code": "CC-0005",
       "facility_code": "VL-0001",
       "customer_code": "C-0005",
-      "start_date": "2022-02-06 00-00-00",
-      "end_date": "2022-02-09 00-00-00",
+      "start_date": "2022-02-06 ",
+      "end_date": "2022-02-09 ",
       "deposit": 100,
       "total_payment": 300
     },
@@ -239,11 +267,30 @@
       "contract_code": "CC-0009",
       "facility_code": "HO-0001",
       "customer_code": "C-0009",
-      "start_date": "2023-12-12T00:12",
-      "end_date": "2023-12-12T01:01",
+      "start_date": "2023-12-12",
+      "end_date": "2023-12-12",
       "deposit": 50,
       "total_payment": 60,
       "id": 6
+    },
+    {
+      "contract_code": "11111111111",
+      "customer_code": "11111",
+      "start_date": "2023-08-24",
+      "end_date": "2023-08-26",
+      "deposit": 500,
+      "total_payment": 6000,
+      "id": 7
+    },
+    {
+      "contract_code": "11111111111",
+      "facility_code": "65645464",
+      "customer_code": "11111",
+      "start_date": "2023-08-10",
+      "end_date": "2023-08-24",
+      "deposit": 300,
+      "total_payment": 6000,
+      "id": 8
     }
   ]
 }

@@ -12,7 +12,7 @@ const ListContract = () => {
   )
   const loadListContract = async () => {
     const result = await getAllContract();
-    setContracts((prev) => result)
+    setContracts(result)
   }
   return (
     <div
@@ -20,7 +20,7 @@ const ListContract = () => {
       style={{ width: "80%", marginTop: "2rem" }}
     >
       <div className="d-flex align-items-center justify-content-center">
-        <h1>Customer List</h1>
+        <h1>Contract list</h1>
       </div>
       <div
         className="d-flex align-items-center justify-content-center mx-auto"

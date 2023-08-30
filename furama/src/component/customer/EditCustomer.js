@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { Form, Formik, ErrorMessage, Field } from "formik";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getListCutomerType } from "../../services/CustomerTypeService";
+import { toast } from "react-toastify";
 
 const EditCustomers = () => {
   const navigate = useNavigate();
@@ -21,6 +22,16 @@ const EditCustomers = () => {
   }
   const updateCustomer = async (value) => {
     const result = await editCustomer(value);
+    toast("Update success !", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
     navigate("/customer");
   }
 
