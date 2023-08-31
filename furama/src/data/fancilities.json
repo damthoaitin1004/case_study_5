@@ -34,44 +34,21 @@
     {
       "id": 3,
       "name": "Room",
-      "rentalCosts": 1300000,
-      "capacity": 3,
+      "area": 50,
+      "rentalCosts": 1800000,
+      "capacity": 4,
       "typeRental": {
-        "id": 3,
-        "namde": "Month"
+        "id": 2,
+        "namde": "Day"
       },
-      "fee": 30
+      "floorQuantity": 2,
+      "roomStandard": "Vip",
+      "description": "confortable",
+      "fee": 40,
+      "poolArea": 23
     }
   ],
   "customer": [
-    {
-      "id": 2,
-      "name": "Mai Thủy Tiên",
-      "birth": "2023-08-18",
-      "gender": "false",
-      "iCard": 2016665456,
-      "phone": "0945665447",
-      "email": "thytien@gmail.com",
-      "customerType": {
-        "id": 1,
-        "name": "Member"
-      },
-      "address": "120 Võ Nguyên Giáp"
-    },
-    {
-      "name": "Nguyễn Tất Thành",
-      "birth": "2023-08-18",
-      "gender": "false",
-      "phone": "0339779768",
-      "iCard": "03339778556",
-      "email": "damthoaitin100041997@gmail.com",
-      "address": "aaaaaa",
-      "customerType": {
-        "id": 4,
-        "name": "Platinium"
-      },
-      "id": 3
-    },
     {
       "name": "Nguyễn Văn B",
       "birth": "2023-08-26",
@@ -170,6 +147,48 @@
       "email": "damthoaitin100041997@gmail.com",
       "address": "aaaaaa",
       "id": 10
+    },
+    {
+      "name": "banh can",
+      "birth": "2023-08-18",
+      "gender": "false",
+      "phone": "0339779865",
+      "iCard": "1111111111111",
+      "customerType": {
+        "id": 1,
+        "name": "Member"
+      },
+      "email": "damthoaitin100041997@gmail.com",
+      "address": "27 My Khe 6",
+      "id": 11
+    },
+    {
+      "name": "banh can",
+      "birth": "2023-08-29",
+      "gender": "false",
+      "phone": "0339779768",
+      "iCard": "1111111111111",
+      "customerType": {
+        "id": 1,
+        "name": "Member"
+      },
+      "email": "damthoaitin100041997@gmail.com",
+      "address": "aaaaaa",
+      "id": 12
+    },
+    {
+      "name": "tdemo",
+      "birth": "2023-08-23",
+      "gender": "false",
+      "phone": "0339779865",
+      "iCard": "1111111111111",
+      "customerType": {
+        "id": 1,
+        "name": "Member"
+      },
+      "email": "damthoaitin100041997@gmail.com",
+      "address": "27 My Khe 6",
+      "id": 13
     }
   ],
   "customerType": [
@@ -291,6 +310,36 @@
       "deposit": 300,
       "total_payment": 6000,
       "id": 8
+    },
+    {
+      "contract_code": "11111111111",
+      "facility_code": "65645464",
+      "customer_code": "11111",
+      "start_date": "2023-08-18",
+      "end_date": "2023-08-11",
+      "deposit": 300,
+      "total_payment": 6000,
+      "id": 9
+    },
+    {
+      "contract_code": "11111111111",
+      "facility_code": "65645464",
+      "customer_code": "11111",
+      "start_date": "2023-08-30",
+      "end_date": "2023-08-25",
+      "deposit": 300,
+      "total_payment": 6000,
+      "id": 10
+    },
+    {
+      "contract_code": "hd-0001",
+      "facility_code": "65645464",
+      "customer_code": "kh-022",
+      "start_date": "2023-09-02",
+      "end_date": "2023-09-01",
+      "deposit": 300,
+      "total_payment": 6000,
+      "id": 11
     }
   ]
 }

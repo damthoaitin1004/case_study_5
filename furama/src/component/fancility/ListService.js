@@ -3,24 +3,76 @@ import * as FancilityServices from "../../services/FancilityServices";
 import { useNavigate } from "react-router-dom";
 import SildeHome from "./SlideHome";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 const ListService = () => {
   const navigate = useNavigate();
+  const [page, setPage] = useState(1);
+  const [search, setSearch] = useState("");
+  const [totalPage, setTotalPage] = useState();
   const [services, setServices] = useState([]);
   useEffect(
     () => {
       loadServiceList();
-    }, []
+    }, [page, search]
   )
   const loadServiceList = async () => {
-    const result = await FancilityServices.getAll();
-    setServices((prev) => result);
+    const result = await FancilityServices.getAll(page, search);
+    setTotalPage(Math.ceil(result.headers['x-total-count'] / 5));
+    setServices((prev) => result.data);
   };
+  const nextPage = () => {
+    if (page < totalPage) {
+      setPage((prev) => prev + 1);
+    }
+  }
+  const previosPage = () => {
+    if (page > 1) {
+      setPage((prev) => prev - 1);
+    }
+  }
+  const searchName = () => {
+    const search = document.getElementById("search").value;
+    setSearch(search);
+    setPage(1);
+  }
+  const deleteService = (value) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Warning the operation will not be completed !',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete ' + value.name,
+      cancelButtonText: 'No, keep ' + value.name
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'The operation was successful !',
+          'success'
+        );
+        await FancilityServices.deleteService(value.id);
+        loadServiceList();
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'The operation has been cancelled ',
+          'error'
+        )
+      }
+    })
+
+  }
   return (
     <>
       <SildeHome />
       <div className="container-fluid " style={{ marginTop: "6%" }}>
         <div className="d-flex justify-content-center mb-3 ">
           <div><h1>Fancilities list</h1></div>
+        </div>
+        <div className="d-flex justify-content-center mb-3 ">
+          <div className="d-flex" role="search"><input type="form-control me-2" id="search" placeholder=" Enter name fancilities"/>
+          <button className="btn btn-outline-success"  onClick={()=>searchName()}>search</button></div>
+
         </div>
         <div className="mx-auto row" style={{ width: "90%" }}>
           {services.map((facility) => (
@@ -45,8 +97,9 @@ const ListService = () => {
                       <button
                         className=" btn btn-outline-danger"
                         type="button"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
+                        onClick={() => {
+                          deleteService(facility)
+                        }}
                       >
                         Delete
                       </button>
@@ -55,245 +108,34 @@ const ListService = () => {
                 </div>
               </div>
             </div>
+
           ))
 
           }
-
-          {/* <div className="col-lg-4 col-md-4 col-sm-6 pb-5">
-            <div className="card" style={{ width: "25rem" }}>
-              <img
-                style={{ width: "100%", height: 200 }}
-                src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Garden-Superior-TwinBed-1-F-370x239.jpg"
-              />
-              <div className="card-body">
-                <h5 className="card-title">OCEAN STUDIO SUITE</h5>
-                <small className="card-text col-6">
-                  Room size 85.8 m<sup>2</sup>
-                </small>
-                <div style={{ marginTop: "3%" }}>
-                  <a href="#" className="card-link">
-                    <button className=" btn btn-outline-primary">Update</button>
+          <div className="d-flex justify-content-center">
+            <nav aria-label="Page navigation example">
+              <ul className="pagination">
+                <li className="page-item">
+                  <button className="page-link" onClick={() => previosPage()} style={{ color: "black" }}>
+                    Previous
+                  </button>
+                </li>
+                <li className="page-item">
+                  <span className="page-link" style={{ color: "black" }}>
+                    {page}/{totalPage}
+                  </span>
+                </li>
+                <li className="page-item">
+                  <a className="page-link" onClick={() => nextPage()} style={{ color: "black" }}>
+                    Next
                   </a>
-                  <a href="#" className="card-link">
-                    <button
-                      className=" btn btn-outline-danger"
-                      type="button"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    >
-                      Delete
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
+                </li>
+              </ul>
+            </nav>
           </div>
-          <div className="col-lg-4 col-md-4 col-sm-6 pb-5">
-            <div className="card" style={{ width: "25rem" }}>
-              <img
-                style={{ width: "100%", height: 200 }}
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMDLEg_UYQOUE1s1b3HdiR5F9Eq3by8HdzFM3P_NaNNgdQgR9wyQziaBpWAXuK44icWu4&usqp=CAU"
-              />
-              <div className="card-body">
-                <h5 className="card-title">OCEAN DELUXE</h5>
-                <small className="card-text col-6">
-                  Room size 85.8 m<sup>2</sup>
-                </small>
-                <div style={{ marginTop: "3%" }}>
-                  <a href="#" className="card-link">
-                    <button className=" btn btn-outline-primary">Update</button>
-                  </a>
-                  <a href="#" className="card-link">
-                    <button
-                      className=" btn btn-outline-danger"
-                      type="button"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    >
-                      Delete
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-4 col-md-4 col-sm-6 pb-5">
-            <div className="card" style={{ width: "25rem" }}>
-              <img
-                style={{ width: "100%", height: 200 }}
-                src="https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Ocean_Deluxe-2-370x239.jpg"
-              />
-              <div className="card-body">
-                <h5 className="card-title">LAGOON SUPERIOR</h5>
-                <small className="card-text col-6">
-                  Room size 85.8 m<sup>2</sup>
-                </small>
-                <div style={{ marginTop: "3%" }}>
-                  <a href="#" className="card-link">
-                    <button className=" btn btn-outline-primary">Update</button>
-                  </a>
-                  <a href="#" className="card-link">
-                    <button
-                      className=" btn btn-outline-danger"
-                      type="button"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    >
-                      Delete
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-4 col-md-4 col-sm-6 pb-5">
-            <div className="card" style={{ width: "25rem" }}>
-              <img
-                style={{ width: "100%", height: 200 }}
-                src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg"
-              />
-              <div className="card-body">
-                <h5 className="card-title">GARDEN SUPERIOR</h5>
-                <small className="card-text col-6">
-                  Room size 85.8 m<sup>2</sup>
-                </small>
-                <div style={{ marginTop: "3%" }}>
-                  <a href="#" className="card-link">
-                    <button className=" btn btn-outline-primary">Update</button>
-                  </a>
-                  <a href="#" className="card-link">
-                    <button
-                      className=" btn btn-outline-danger"
-                      type="button"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    >
-                      Delete
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-4 col-md-4 col-sm-6 pb-5">
-            <div className="card" style={{ width: "25rem" }}>
-              <img
-                style={{ width: "100%", height: 200 }}
-                src="https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Pool_Villas_Twin-Bedroom-1047x563.jpg"
-              />
-              <div className="card-body">
-                <h5 className="card-title">GARDEN DELUXE</h5>
-                <small className="card-text col-6">
-                  Room size 85.8 m<sup>2</sup>
-                </small>
-                <div style={{ marginTop: "3%" }}>
-                  <a href="#" className="card-link">
-                    <button className=" btn btn-outline-primary">Update</button>
-                  </a>
-                  <a href="#" className="card-link">
-                    <button
-                      className=" btn btn-outline-danger"
-                      type="button"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    >
-                      Delete
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-4 col-md-4 col-sm-6 pb-5">
-            <div className="card" style={{ width: "25rem" }}>
-              <img
-                style={{ width: "100%", height: 200 }}
-                src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg"
-              />
-              <div className="card-body">
-                <h5 className="card-title">PRESIDENTIAL SUITE</h5>
-                <small className="card-text col-6">
-                  Room size 85.8 m<sup>2</sup>
-                </small>
-                <div style={{ marginTop: "3%" }}>
-                  <a href="#" className="card-link">
-                    <button className=" btn btn-outline-primary">Update</button>
-                  </a>
-                  <a href="#" className="card-link">
-                    <button
-                      className=" btn btn-outline-danger"
-                      type="button"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    >
-                      Delete
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-4 col-md-4 col-sm-6 pb-5" style={{ height: 400 }}>
-            <div className="card" style={{ width: "25rem" }}>
-              <img
-                style={{ width: "100%", height: 200 }}
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO1e6oO8REi6g5Lc8e6aAoMZTteeGCbwbDXkNTolSP_p6aNeJXmDSEw5TtSdu7qFdxR9Q&usqp=CAU"
-              />
-              <div className="card-body">
-                <h5 className="card-title">BEACH FRONT VILLAS</h5>
-                <small className="card-text col-6">
-                  Room size 85.8 m<sup>2</sup>
-                </small>
-                <div style={{ marginTop: "3%" }}>
-                  <a href="#" className="card-link">
-                    <button className=" btn btn-outline-primary">Update</button>
-                  </a>
-                  <a href="#" className="card-link">
-                    <button
-                      className=" btn btn-outline-danger"
-                      type="button"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    >
-                      Delete
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-4 col-md-4 col-sm-6 pb-5">
-            <div className="card" style={{ width: "25rem" }}>
-              <img
-                style={{ width: "100%", height: 200 }}
-                src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/128145956.jpg?k=4269254c37b76f9aa1ac914dcfcce2f07bb7aed375cce4ae8631bd670266bbc8&o=&hp=1"
-              />
-              <div className="card-body">
-                <h5 className="card-title">POOL VILLAS</h5>
-                <small className="card-text col-6">
-                  Room size 85.8 m<sup>2</sup>
-                </small>
-                <div style={{ marginTop: "3%" }}>
-                  <a href="#" className="card-link">
-                    <button className=" btn btn-outline-primary">Update</button>
-                  </a>
-                  <a href="#" className="card-link">
-                    <button
-                      className=" btn btn-outline-danger"
-                      type="button"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    >
-                      Delete
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div> */}
 
         </div>
-      </div>
+      </div >
     </>
 
 

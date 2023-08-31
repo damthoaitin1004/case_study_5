@@ -24,6 +24,7 @@ const CreateService = () => {
       ...value, typeRental: JSON.parse(value.typeRental)
     }
     console.log(newValue)
+    
     await FancilityServices.addService(newValue);
     toast("Create success !", {
       position: "top-center",

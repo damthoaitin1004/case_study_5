@@ -1,8 +1,8 @@
 import axios from "axios";
-export const getAll = async () => {
+export const getAll = async (page,search) => {
     try {
-        const result = await axios.get(' http://localhost:3005/fancilities');
-        return result.data;
+        const result = await axios.get(`http://localhost:3005/fancilities?_page=${page}&_limit=5&name_like=${search}`);
+        return result;
     }
     catch (e) {
         console.log(e)
